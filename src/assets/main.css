@@ -1,3 +1,7 @@
+@import './variables.css';
+@import './animations.css';
+
+
 *,
 *::before,
 *::after {
@@ -19,6 +23,17 @@ body {
   cursor: none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  font-family: var(--font-mono);
+  cursor: pointer;
+  border: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
 }
 
 /* Scrollbar */
@@ -73,4 +88,26 @@ a {
   font-size: clamp(2rem, 4vw, 3rem);
   letter-spacing: -1px;
   margin-bottom: 60px;
+}
+
+/* Grid background */
+.grid-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section-inner {
+    padding: 60px 20px;
+  }
+  body {
+    cursor: auto;
+  }
 }

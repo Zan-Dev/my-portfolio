@@ -1,6 +1,8 @@
 <script setup>
 import SectionHeader from '@/components/ui/SectionHeader.vue'
+import { usePortfolioStore } from '@/stores/portfolio'
 
+const store = usePortfolioStore()
 </script>
 
 <template>
@@ -27,9 +29,9 @@ import SectionHeader from '@/components/ui/SectionHeader.vue'
           </div>
 
           <div class="stats-grid">
-            <div class="stat-box">
-              <span class="stat-box__value">Test</span>
-              <span class="stat-box__label">Test Label</span>
+            <div v-for="stat in store.stats" :key="stat.label" class="stat-box">
+              <span class="stat-box__value">{{ stat.value }}</span>
+              <span class="stat-box__label">{{ stat.label }}</span>
             </div>
           </div>
         </div>
@@ -38,15 +40,15 @@ import SectionHeader from '@/components/ui/SectionHeader.vue'
         <div>
           <p class="section-label" style="margin-bottom: 24px">Tech Proficiency</p>
           <div class="tech-bars">
-            <div class="tech-row">
-              <span class="tech-label">Test Tech</span>
+             <div v-for="t in store.techBars" :key="t.name" class="tech-row">
+              <span class="tech-label">{{ t.name }}</span>
               <div class="tech-bar">
                 <div
                   class="tech-fill"
-                  :style="{ width: '80%', background: '#00e5ff' }"
+                  :style="{ width: t.percentage + '%', background: t.color }"
                 />
               </div>
-              <span class="tech-pct">80%</span>
+              <span class="tech-pct">{{ t.percentage }}%</span>
             </div>
           </div>
         </div>

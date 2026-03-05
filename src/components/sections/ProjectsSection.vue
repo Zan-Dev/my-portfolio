@@ -1,7 +1,9 @@
 <script setup>
 import SectionHeader from '@/components/ui/SectionHeader.vue'
 import ProjectCard from '@/components/ui/ProjectCard.vue'
+import { usePortfolioStore } from '@/stores/portfolio'
 
+const store = usePortfolioStore()
 const filters = ['all', 'web', 'iot', 'fullstack']
 </script>
 
@@ -15,14 +17,20 @@ const filters = ['all', 'web', 'iot', 'fullstack']
         <button
           v-for="f in filters"
           :key="f"
-          class="filter-btn"          
+          class="filter-btn"
+          :class="{ 'filter-btn--active': store.activeFilter === f }"
+          @click="store.setFilter(f)"   
         >
           {{ f.toUpperCase() }}
         </button>
       </div>
 
       <div class="projects-grid">
-        <ProjectCard                    
+        <ProjectCard   
+          v-for="(project, i) in store.filteredProjects"
+          :key="project.id"
+          :project="project"
+          :index="i"                 
         />
       </div>
     </div>

@@ -2,18 +2,11 @@
 defineProps({
   project: {
     type: Object,
-    required: true,
-    default: () => ({
-        id: null,
-        title: '',
-        type: '',
-        description: ''
-    }) 
+    required: true,    
   },
   index: {
     type: Number,
-    required: true,
-    default: 0
+    required: true,    
   }
 })
 </script>

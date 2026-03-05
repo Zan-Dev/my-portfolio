@@ -1,5 +1,8 @@
 <script setup>
 import SectionHeader from '@/components/ui/SectionHeader.vue'
+import { usePortfolioStore } from '@/stores/portfolio'
+
+const store = usePortfolioStore()
 </script>
 
 <template>
@@ -8,9 +11,17 @@ import SectionHeader from '@/components/ui/SectionHeader.vue'
       <SectionHeader label="Technical Expertise" title="My Skills" />
       <div class="skills-grid">
         <div                    
+          v-for="skill in store.skills"
+          :key="skill.id"
           class="skill-card"
+          :style="{ '--cat-color': skill.color }"
         >
-          test
+          <span class="skill-card__icon">{{ skill.icon }}</span>
+          <p class="skill-card__category">{{ skill.category }}</p>
+          <h3 class="skill-card__name">{{ skill.name }}</h3>
+          <div class="skill-card__tags">
+            <span v-for="tag in skill.tags" :key="tag" class="skill-tag">{{ tag }}</span>
+          </div>
         </div>
       </div>
     </div>

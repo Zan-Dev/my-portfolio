@@ -2,9 +2,9 @@
 
 const links = [
   { label: 'Email', icon: '✉', href: 'mailto:a.fauzan.idn@gmail.com' },
-  { label: 'LinkedIn', icon: '⌂', href: 'https://linkedin.com', external: true },
-  { label: 'GitHub', icon: '◈', href: 'https://github.com', external: true },
-  { label: 'Resume', icon: '◻', href: '/resume.pdf', external: true }
+  { label: 'LinkedIn', icon: '⌂', href: 'https://www.linkedin.com/in/fauzan-profile', external: true },
+  { label: 'GitHub', icon: '◈', href: 'https://github.com/Zan-Dev', external: true },
+  { label: 'Resume', icon: '◻', href: 'public/Ahmad Fauzan_Eng.pdf', external: true }
 ]
 </script>
 
